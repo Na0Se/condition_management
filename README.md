@@ -61,3 +61,6 @@ erDiagram
 - Vue3
 - postgreSQL
 - docker
+
+
+モックweb-api はファイル配下で nodemon index.js で動きます。
