@@ -1,26 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <router-link to="/post">連絡先登録</router-link> / 
+    <router-link to="/list">連絡先一覧</router-link>
+    <hr />
+
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import {provide} from 'vue';
+import {fetchStore} from './store/fetchStore.js';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  setup(){
+    provide('fetchStore',fetchStore());
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
