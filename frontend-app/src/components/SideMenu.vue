@@ -28,7 +28,7 @@ export default {
     const logout = () => {
       // ログアウト処理をここに記述する。クッキーのセッションを消すのだ！
       // ログアウト後に /login に遷移する
-      router.push('/login');
+      router.push('/');
     };
 
     return { 

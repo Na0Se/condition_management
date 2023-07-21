@@ -10,7 +10,7 @@ import RegisterUser from './components/RegisterUser';
 // ルーティング設定（URL→コンポーネントの紐付け）
 const routes = [
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     component: LoginUser
   },
