@@ -1,15 +1,20 @@
 const express = require('express');
 const path = require("path");
+const cors = require('cors');
 const app = express()
 
 app.use(express.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname,"public")));
 app.use(express.json());
+// 8080ポートに対して許可する場合
+app.use(cors({
+    origin: 'http://localhost:8080'
+  }));
 
 const users = [
-    { id: 1, username: 'John Doe', password: 'hoge', friend: [2] },
-    { id: 2, username: 'Jane Smith', password: 'hoge', friend: [] },
-    { id: 3, username: 'Mikel Jackson', password: 'hoge', friend: [] }
+    { id: 1, username: 'JohnDoe', password: 'hoge', friend: [2] },
+    { id: 2, username: 'JaneSmith', password: 'hoge', friend: [] },
+    { id: 3, username: 'MikelJackson', password: 'hoge', friend: [] }
 ];
 
 const health_logs = [
