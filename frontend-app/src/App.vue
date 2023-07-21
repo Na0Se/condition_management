@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <transition name="menu-fade">
-      <side-menu v-if="menuState" @openmenu="openMenu" />
+      <side-menu v-if="menuState" @openmenu="openMenu" right/>
     </transition>
     <div class="main-pane">
       <div class="navbar">
@@ -11,7 +11,7 @@
             <h1 class="logo">体調管理アプリ</h1>
           </div>
           <nav>
-            <i class="menu-btn-icon fas fa-bars" @click="openMenu"></i>
+            <button @click="openMenu">メニュー</button>
           </nav>
         </div>
         
@@ -53,6 +53,7 @@ export default {
 </script>
 
 <style scoped>
+/* メニューのスライドアニメーション */
 .menu-fade-enter-active,
 .menu-fade-leave-active {
   transition: opacity 0.3s;
@@ -61,5 +62,39 @@ export default {
 .menu-fade-enter-from,
 .menu-fade-leave-to {
   opacity: 0;
+}
+
+/* メインペインの余白 */
+.main-pane {
+  padding: 20px;
+}
+
+/* ナビゲーションバーのスタイル（必要に応じて調整） */
+.navbar {
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 60px;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+}
+
+nav button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 </style>
