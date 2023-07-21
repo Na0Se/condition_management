@@ -59,7 +59,7 @@ erDiagram
 
 ## 使う技術
 - Spring Boot
-- Vue3
+- Vue3 vue3-cookie
 - postgreSQL
 - docker
 

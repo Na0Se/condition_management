@@ -1,0 +1,162 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+@import url("./foundation.css");
+
+/* Base Layout */
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.main-pane {
+  flex: 1 0 auto;
+}
+.cart-pane {
+  width: 400px;
+}
+
+/* Nabvar */
+.navbar {
+  background-color: var(--primary-color);
+  color: #fff;
+  height: 70px;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar .flex {
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.navbar a:hover {
+  border-bottom: 2px #fff solid;
+}
+
+/* Menu Button */
+.menu-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-btn-icon {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+}
+
+/* Drawer Menu */
+.drawer-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.drawer-menu h2 {
+  text-align: center;
+  color: white;
+}
+
+.drawer-menu li {
+  line-height: 1.4;
+}
+
+.drawer-menu li:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.drawer-menu a {
+  display: block;
+  color: #047aed;
+  font-size: 0.8em;
+  padding: 1em 2em;
+}
+.drawer-menu a:hover {
+  background-color: #333;
+}
+
+/* Top Head */
+.top-head {
+  width: 100%;
+  height: 250px;
+  /* background-image: url("/public/images/top_head_1.jpg"); */
+}
+
+.top-head .flex {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.top-head .lead {
+  margin-left: 5rem;
+  color: white;
+}
+
+/* Item */
+.items-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.item {
+  text-align: center;
+  margin: 18px 10px 40px;
+}
+.item h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.item img {
+  height: 150px;
+  width: 100px;
+}
+
+/* Footer */
+.footer .social a {
+  margin: 0 10px;
+}
+
+/* Login */
+.login-form {
+  position: absolute;
+  top: 50px;
+  left: 800px;
+  width: 300px;
+  padding: 40px;
+  z-index: 100;
+}
+
+.login-form:before {
+  content: "";
+  border: 12px solid transparent;
+  border-bottom: 12px solid #fff;
+  position: absolute;
+  left: 30%;
+  top: -23px;
+  z-index: 104;
+}
+
+.login-form:after {
+  content: "";
+  border: 12px solid transparent;
+  border-bottom: 12px solid #aaa;
+  position: absolute;
+  left: 30%;
+  top: -24px;
+  z-index: 100;
+}
