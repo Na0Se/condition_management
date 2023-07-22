@@ -27,8 +27,9 @@
 erDiagram
     users{
         id int PK "自動採番"
-        name varchar(255) "unique　ユーザー名"
+        username varchar(255) "unique　ユーザー名"
         password varchar(255) "パスワードのハッシュ値"
+        friend JSONB "友達リストの配列"
     }
 
     health_logs{
@@ -50,4 +51,17 @@ erDiagram
 | /api/register             | ×    | POST               | username, password,password_confirmation | -                                           | 201, 400         | 新規登録機能                 |
 | /api/health-logs          | ⚪︎ | POST               | token, status, comment                   | -                                           | 201, 401, 400    | 体調入力機能                 |
 | /api/health-logs          | ⚪︎ | GET                | -                                        | [{user_id, username, status, comment}, ...] | 200, 401         | みんなの体調画面表示機能     |
-| /api/health-logs/:user_id | ⚪︎ | POST               | token, user_id                           | -                                           | 201, 401, 400    | 追加画面でのユーザー追加機能 |
+| /api/health-logs/:user_id | ⚪︎ | POST               | token, friends_id(配列)                          | -                                           | 201, 401, 400    | 追加画面でのユーザー追加機能 |
+
+※クッキーやセッションを使って、常にログインしているユーザーのIDを取得できる状態にしておきましょう！friendにuser_idを追加するときにバックエンドで必要になります。
+※:user_idは現在ログインしているユーザーのidを入れる。リクエストボディにfriend_id(友達リストに追加したいユーザー)を入れる。（複数）
+※サーバーサイドでセッションIDをログインするたびに作成する。（トークン）それを、クライアント側でクッキーに保存して管理しましょう。
+
+## 使う技術
+- Spring Boot
+- Vue3 vue3-cookie
+- postgreSQL
+- docker
+
+
+モックweb-api はファイル配下で nodemon index.js で動きます。
