@@ -12,9 +12,9 @@ app.use(cors({
   }));
 
 const users = [
-    { id: 1, username: 'JohnDoe', password: 'hoge', friend: [2] },
-    { id: 2, username: 'JaneSmith', password: 'hoge', friend: [] },
-    { id: 3, username: 'MikelJackson', password: 'hoge', friend: [] }
+    { id: 1, username: 'name1', password: 'hoge', friend: [2] },
+    { id: 2, username: 'name2', password: 'hoge', friend: [] },
+    { id: 3, username: 'name3', password: 'hoge', friend: [] }
 ];
 
 const health_logs = [

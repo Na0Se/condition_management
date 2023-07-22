@@ -1,5 +1,5 @@
 import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
+
 
 export function fetchStore() {
   const state = reactive({
@@ -20,14 +20,10 @@ export function fetchStore() {
     };
     // WebAPIへ通信開始
     const response = await window.fetch(getApiUrl('/api/login'), fetchOptions);
+    
     // レスポンスが'OK'(status code:200)でなければエラーとして処理する
-    if (!response.ok) {
-      window.alert('ユーザーネームかパスワードが間違ってるみたいだよ');
-    } else {
-      const router = useRouter();
-      router.push('/condition');
-      window.alert('成功');
-    }
+    if (!response.ok) throw new Error(`ERROR:${response.status} ${response.statusText}`);
+    
   };
 
   return {
