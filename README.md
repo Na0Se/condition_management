@@ -47,7 +47,7 @@ erDiagram
 
 | エンドポイント            | 認証 | リクエストメソッド | リクエストパラメータ                     | レスポンスパラメータ                        | ステータスコード | 備考                         |
 | :------------------------ | :--- | :----------------- | :--------------------------------------- | :------------------------------------------ | :--------------- | :--------------------------- |
-| /api/login                | ×    | POST               | username, password                       | token                                       | 200, 401         | ログイン機能                 |
+| /api/login                | ×    | POST               | username, password                       | token,id                                       | 200, 401         | ログイン機能                 |
 | /api/register             | ×    | POST               | username, password,password_confirmation | -                                           | 201, 400         | 新規登録機能                 |
 | /api/health-logs          | ⚪︎ | POST               | token, status, comment                   | -                                           | 201, 401, 400    | 体調入力機能                 |
 | /api/health-logs          | ⚪︎ | GET                | -                                        | [{user_id, username, status, comment}, ...] | 200, 401         | みんなの体調画面表示機能     |
