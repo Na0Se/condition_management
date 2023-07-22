@@ -2,10 +2,10 @@
     <div>
         <h1>体調管理アプリ</h1>
 
-        <form @click="login">
+        <form>
         <input type="text" placeholder="username" required v-model="inputUser.username"/><br>
         <input type="password" placeholder="password" required v-model="inputUser.password"/><br>
-        <button>LOGIN</button>
+        <button @click="login">LOGIN</button>
         </form>
     </div>
 </template>
