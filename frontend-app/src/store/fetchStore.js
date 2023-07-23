@@ -3,7 +3,8 @@ import { reactive } from 'vue';
 
 export function fetchStore() {
   const state = reactive({
-    users: [] // ユーザーデータ
+    users: [], // ユーザーデータ
+    name: []
   });
 
   const getApiUrl = (path) => {
@@ -58,10 +59,42 @@ export function fetchStore() {
     }
   };
 
+  const fetchFriends = async () => {
+    try {
+      // WebAPIにアクセスしてレスポンスを得る
+      const response = await window.fetch(getApiUrl('/api/health-logs'));
+      // ステータスが200(ok)以外のときはエラー扱いとする
+      if (!response.ok) throw new Error(`ERROR:${response.status} ${response.statusText}`);
+      // レスポンスのボディ部分をJSONで取得
+      const data = await response.json();
+      // 取得したJSONデータをstateに保存
+      state.users = data;
+    } catch (error) {
+      // 通信エラー時処理
+      console.error(error);
+      window.alert('読み込みに失敗したよ！')
+    }
+  };
+
+  const addName = async () => {
+    try{
+      const response = await window.fetch(getApiUrl('/api/users'));
+
+      if(!response.ok) throw new Error(`ERROR:${response.status} ${response.statusText}`);
+      const data = await response.json();
+      // 取得したJSONデータをstateに保存
+      state.name = data;
+    } catch (error){
+      window.alert('ユーザーの読み込み失敗！');
+    }
+  }
+
   return {
     state,
     loginUser,
     registerUser,
-    registerCondition
+    registerCondition,
+    fetchFriends,
+    addName
   };
 }

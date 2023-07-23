@@ -138,5 +138,9 @@ app.post('/api/health-logs/:user_id', (req, res) => {
     res.status(201).json(user);
 });
 
+app.get('/api/users',(req,res) => {
+    res.status(200).json(users);
+});
+
 
 app.listen(3001)
