@@ -41,9 +41,27 @@ export function fetchStore() {
     }
   };
 
+  const registerCondition = async (condition) => {
+    const fetchOptions = {
+      method: 'POST',
+      body: JSON.stringify(condition),
+      headers: { 'Content-Type' : 'application/json'}
+    };
+
+    const response = await window.fetch(getApiUrl('/api/health-logs'),fetchOptions);
+
+    if(response.status !== 201){
+      window.alert('エラーが起きたよ！もう一度登録してみてね');
+    } else {
+      window.alert(`体調は${condition.status}でコメントは${condition.comment}で登録したよ！`);
+      console.log(condition);
+    }
+  };
+
   return {
     state,
     loginUser,
-    registerUser
+    registerUser,
+    registerCondition
   };
 }
