@@ -26,8 +26,24 @@ export function fetchStore() {
     
   };
 
+  const registerUser = async (user) => {
+    const fetchOptions = {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: { 'Content-Type' : 'application/json'}
+    };
+
+    const response = await window.fetch(getApiUrl('/api/register'), fetchOptions);
+
+    if(response.status !== 201){
+      window.alert('新規登録ができなかったよ！？');
+      throw new Error(`ERROR:${response.status} ${response.statusText}`);
+    }
+  };
+
   return {
     state,
-    loginUser
+    loginUser,
+    registerUser
   };
 }
